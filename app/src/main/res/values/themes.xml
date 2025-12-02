@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--AppCompatActivity를 쓸 때는 반드시 Theme.AppCompat 계열 테마를 사용해야 앱이 정상 실행-->
+    <style name="Theme.Mozaic" parent="Theme.AppCompat.Light.NoActionBar" />
+</resources>

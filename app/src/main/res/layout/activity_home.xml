@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:padding="24dp">
+
+    <ImageView
+        android:id="@+id/image_preview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:contentDescription="사진 미리보기"
+        android:background="#DDDDDD" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_mosaic"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="80dp"
+            android:layout_marginTop="8dp"
+            android:text="모자이크 기능" />
+
+        <Button
+            android:id="@+id/btn_backgd"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="80dp"
+            android:layout_marginTop="8dp"
+            android:text="배경 삽입 기능" />
+
+    </LinearLayout>
+
+</LinearLayout>
