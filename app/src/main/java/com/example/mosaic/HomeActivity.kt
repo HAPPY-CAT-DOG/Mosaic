@@ -27,7 +27,7 @@ class HomeActivity : AppCompatActivity() {
         private const val REQUEST_GALLERY = 1001
 
         // 🔥 Map 기능 비활성화 — 사용 X
-        // const val REQUEST_MAP = 2001
+         const val REQUEST_MAP = 2001
 
         private lateinit var originalBitmap: android.graphics.Bitmap
 
@@ -121,27 +121,23 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
 
-            // --------------------------------------------------------
-            // 🔥 지도 결과 처리 비활성화 (추후 다시 사용할 때만 해제)
-            //
-            // REQUEST_MAP -> {
-            //     val mapUriString = data?.getStringExtra("mapImageUri")
-            //     val mapUri = mapUriString?.let { Uri.parse(it) }
-            //
-            //     if (mapUri != null) {
-            //         try {
-            //             val mapBitmap =
-            //                 MediaStore.Images.Media.getBitmap(contentResolver, mapUri)
-            //             imageView.setImageBitmap(mapBitmap)
-            //             setOriginalBitmap(mapBitmap)
-            //
-            //         } catch (e: Exception) {
-            //             e.printStackTrace()
-            //             Toast.makeText(this, "지도 이미지 로딩 실패", Toast.LENGTH_SHORT).show()
-            //         }
-            //     }
-            // }
-            // --------------------------------------------------------
+             REQUEST_MAP -> {
+                 val mapUriString = data?.getStringExtra("mapImageUri")
+                 val mapUri = mapUriString?.let { Uri.parse(it) }
+
+                 if (mapUri != null) {
+                     try {
+                         val mapBitmap =
+                             MediaStore.Images.Media.getBitmap(contentResolver, mapUri)
+                         imageView.setImageBitmap(mapBitmap)
+                         setOriginalBitmap(mapBitmap)
+
+                     } catch (e: Exception) {
+                         e.printStackTrace()
+                         Toast.makeText(this, "지도 이미지 로딩 실패", Toast.LENGTH_SHORT).show()
+                     }
+                 }
+             }
         }
     }
 }

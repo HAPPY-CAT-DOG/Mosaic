@@ -27,7 +27,7 @@ class BackgdActivity : AppCompatActivity() {
 
     private lateinit var imageView: ImageView
     private lateinit var templateBtn: Button
-//    private lateinit var mapBtn: Button
+    private lateinit var mapBtn: Button
     private lateinit var saveBtn: Button
     private lateinit var cancelBtn: Button
     private var selectedImageUri: Uri? = null
@@ -39,7 +39,7 @@ class BackgdActivity : AppCompatActivity() {
 
         imageView = findViewById(R.id.imageView_backgd)
         templateBtn = findViewById(R.id.btn_template)
-//        mapBtn = findViewById(R.id.btn_map)
+        mapBtn = findViewById(R.id.btn_map)
         saveBtn = findViewById(R.id.btn_save)
         cancelBtn = findViewById(R.id.btn_cancel)
 
@@ -63,13 +63,13 @@ class BackgdActivity : AppCompatActivity() {
             showTemplateSelectionDialog()
         }
 
-//        mapBtn.setOnClickListener {
-//            selectedImageUri?.let {
-//                val intent = Intent(this, MapActivity::class.java)
-//                intent.putExtra("imageUri", it.toString())
-//                startActivityForResult(intent, REQUEST_MAP)
-//            } ?: Toast.makeText(this, "이미지를 먼저 선택해주세요.", Toast.LENGTH_SHORT).show()
-//        }
+        mapBtn.setOnClickListener {
+            selectedImageUri?.let {
+                val intent = Intent(this, MapActivity::class.java)
+                intent.putExtra("imageUri", it.toString())
+                startActivityForResult(intent, REQUEST_MAP)
+            } ?: Toast.makeText(this, "이미지를 먼저 선택해주세요.", Toast.LENGTH_SHORT).show()
+        }
 
         saveBtn.setOnClickListener {
             Toast.makeText(this, "저장 기능은 아직 구현되지 않았습니다.", Toast.LENGTH_SHORT).show()

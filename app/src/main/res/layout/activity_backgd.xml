@@ -28,12 +28,12 @@
             android:text="배경 삽입"
             android:layout_marginBottom="12dp" />
 
-<!--        <Button-->
-<!--            android:id="@+id/btn_map"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="지도에서 배경 선택"-->
-<!--            android:layout_marginBottom="24dp" />-->
+        <Button
+            android:id="@+id/btn_map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="지도에서 배경 선택"
+            android:layout_marginBottom="24dp" />
 
         <!-- ✅ 저장 / 취소 버튼 -->
         <LinearLayout
