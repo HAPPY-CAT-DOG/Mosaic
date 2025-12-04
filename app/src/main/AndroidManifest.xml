@@ -20,7 +20,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Mozaic"
+        android:theme="@style/Theme.Mosaic"
         tools:targetApi="31">
 
         <!-- Google Maps API Key -->
@@ -33,22 +33,24 @@
             android:name=".HomeActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Mozaic">
+            android:theme="@style/Theme.Mosaic">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!-- 각 기능별 Activity 등록 -->
+        <!-- 모자이크 기능 Activity -->
         <activity
             android:name=".MosaicActivity"
             android:exported="true" />
 
+        <!-- 배경 선택 Activity -->
         <activity
             android:name=".BackgdActivity"
             android:exported="true" />
 
+        <!-- 지도 Activity -->
         <activity
             android:name=".MapActivity"
             android:exported="true" />

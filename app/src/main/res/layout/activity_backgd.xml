@@ -14,7 +14,7 @@
         <ImageView
             android:id="@+id/imageView_backgd"
             android:layout_width="match_parent"
-            android:layout_height="420dp"
+            android:layout_height="500dp"
             android:layout_marginBottom="24dp"
             android:scaleType="fitCenter"
             android:contentDescription="선택된 이미지 미리보기"
@@ -25,17 +25,17 @@
             android:id="@+id/btn_template"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="템플릿 배경 삽입"
+            android:text="배경 삽입"
             android:layout_marginBottom="12dp" />
 
-        <Button
-            android:id="@+id/btn_map"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="지도에서 배경 선택"
-            android:layout_marginBottom="24dp" />
+<!--        <Button-->
+<!--            android:id="@+id/btn_map"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="지도에서 배경 선택"-->
+<!--            android:layout_marginBottom="24dp" />-->
 
-        <!-- ✅ 저장 / 취소 버튼 (좌우 50:50) -->
+        <!-- ✅ 저장 / 취소 버튼 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

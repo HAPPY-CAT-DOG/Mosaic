@@ -25,7 +25,9 @@ class HomeActivity : AppCompatActivity() {
 
     companion object {
         private const val REQUEST_GALLERY = 1001
-        const val REQUEST_MAP = 2001
+
+        // 🔥 Map 기능 비활성화 — 사용 X
+        // const val REQUEST_MAP = 2001
 
         private lateinit var originalBitmap: android.graphics.Bitmap
 
@@ -38,11 +40,12 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        // ⬇️ activity_home.xml 에 존재하는 정확한 ID 연결
+        // UI 연결
         imageView = findViewById(R.id.image_preview)
         mosaicBtn = findViewById(R.id.btn_mosaic)
         backgdBtn = findViewById(R.id.btn_backgd)
 
+        // 갤러리 선택
         imageView.setOnClickListener {
             checkPermissionAndOpenGallery()
         }
@@ -56,7 +59,7 @@ class HomeActivity : AppCompatActivity() {
             } ?: Toast.makeText(this, "먼저 사진을 선택하세요.", Toast.LENGTH_SHORT).show()
         }
 
-        // 배경 삽입 기능 이동
+        // 배경 삽입 기능 이동 (지도 아님!)
         backgdBtn.setOnClickListener {
             selectedImageUri?.let { uri ->
                 val intent = Intent(this, BackgdActivity::class.java)
@@ -64,9 +67,12 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(intent)
             } ?: Toast.makeText(this, "먼저 사진을 선택하세요.", Toast.LENGTH_SHORT).show()
         }
+
+        // 🔥 지도 버튼이 있었으면 여기서 삭제됨
+        // (MapActivity 호출 코드 없음)
     }
 
-    // 권한 처리 + 갤러리 열기
+    // 권한 처리
     private fun checkPermissionAndOpenGallery() {
         val permission = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             Manifest.permission.READ_MEDIA_IMAGES
@@ -75,14 +81,13 @@ class HomeActivity : AppCompatActivity() {
         }
 
         if (ContextCompat.checkSelfPermission(this, permission)
-            != PackageManager.PERMISSION_GRANTED) {
-
+            != PackageManager.PERMISSION_GRANTED
+        ) {
             ActivityCompat.requestPermissions(
                 this,
                 arrayOf(permission),
                 REQUEST_GALLERY
             )
-
         } else {
             openGallery()
         }
@@ -116,22 +121,27 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
 
-            REQUEST_MAP -> {
-                val mapUriString = data?.getStringExtra("mapImageUri")
-                val mapUri = mapUriString?.let { Uri.parse(it) }
-
-                if (mapUri != null) {
-                    try {
-                        val mapBitmap = MediaStore.Images.Media.getBitmap(contentResolver, mapUri)
-                        imageView.setImageBitmap(mapBitmap)
-                        setOriginalBitmap(mapBitmap)
-
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                        Toast.makeText(this, "지도 이미지 로딩 실패", Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
+            // --------------------------------------------------------
+            // 🔥 지도 결과 처리 비활성화 (추후 다시 사용할 때만 해제)
+            //
+            // REQUEST_MAP -> {
+            //     val mapUriString = data?.getStringExtra("mapImageUri")
+            //     val mapUri = mapUriString?.let { Uri.parse(it) }
+            //
+            //     if (mapUri != null) {
+            //         try {
+            //             val mapBitmap =
+            //                 MediaStore.Images.Media.getBitmap(contentResolver, mapUri)
+            //             imageView.setImageBitmap(mapBitmap)
+            //             setOriginalBitmap(mapBitmap)
+            //
+            //         } catch (e: Exception) {
+            //             e.printStackTrace()
+            //             Toast.makeText(this, "지도 이미지 로딩 실패", Toast.LENGTH_SHORT).show()
+            //         }
+            //     }
+            // }
+            // --------------------------------------------------------
         }
     }
 }
