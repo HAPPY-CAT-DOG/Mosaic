@@ -6,34 +6,38 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
+        android:layout_height="match_parent"
+        android:padding="24dp"
         android:gravity="center_horizontal">
 
         <!-- ✅ 이미지 미리보기 -->
         <ImageView
             android:id="@+id/imageView_backgd"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="450dp"
             android:layout_marginBottom="24dp"
             android:scaleType="fitCenter"
             android:contentDescription="선택된 이미지 미리보기"
-            android:background="#CCCCCC" />
+            android:background="@drawable/rounded_gray_box" />
 
         <!-- ✅ 템플릿/지도 버튼 (세로 고정) -->
         <Button
             android:id="@+id/btn_template"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:background="@drawable/rounded_24"
             android:text="배경 삽입"
-            android:layout_marginBottom="12dp" />
+            android:textColor="#000000"
+            android:layout_marginBottom="16dp"/>
 
         <Button
             android:id="@+id/btn_map"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="지도에서 배경 선택"
-            android:layout_marginBottom="24dp" />
+            android:layout_height="60dp"
+            android:background="@drawable/rounded_24"
+            android:text="스트리트뷰 삽입"
+            android:textColor="#000000"
+            android:layout_marginBottom="16dp"/>
 
         <!-- ✅ 저장 / 취소 버튼 -->
         <LinearLayout
@@ -47,16 +51,20 @@
                 android:id="@+id/btn_save"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="저장하기"
-                android:layout_marginEnd="8dp" />
+                android:layout_height="60dp"
+                android:background="@drawable/rounded_24"
+                android:text="저장"
+                android:textColor="#000000"
+                android:layout_marginRight="12dp"/>
 
             <Button
                 android:id="@+id/btn_cancel"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:text="취소" />
+                android:layout_height="60dp"
+                android:background="@drawable/rounded_24"
+                android:text="취소"
+                android:textColor="#000000"/>
         </LinearLayout>
 
     </LinearLayout>
